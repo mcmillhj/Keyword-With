@@ -1,4 +1,5 @@
-Revision history for Keyword-With
+Revision history for Keyword-Engiven
 
 {{$NEXT}}
-    -
+    - added new syntax for 'with (...) { }' blocks that alias the result of the expression held within () to $_
+    - added simple test cases
