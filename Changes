@@ -1,5 +1,7 @@
 Revision history for Keyword-Engiven
 
 {{$NEXT}}
+
+0.001       2016-06-22
     - added new syntax for 'with (...) { }' blocks that alias the result of the expression held within () to $_
     - added simple test cases
