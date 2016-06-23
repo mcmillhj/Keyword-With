@@ -3,8 +3,6 @@
 use strict;
 use warnings;
 
-use feature qw(current_sub);
-
 use Keyword::With; 
 use Test::More tests => 2;
 
@@ -28,15 +26,14 @@ sub test_less_simple {
 
     my $result;
     with ( 
-        sub { 
-            my $n = shift; 
-            return $n if $n < 2; 
-            return __SUB__->($n-1) * $n; 
+       sub {
+           my $n = shift;
+           return $n + 1;
         }
     ) {
         $result = $_->(5);
     }
 
-    is $result, 120, 'handled expected anonymous subroutine';
+    is $result, 6, 'handled expected anonymous subroutine';
     return;
 }
