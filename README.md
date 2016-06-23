@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mcmillhj/Keyword-With.svg?branch=master)](https://travis-ci.org/mcmillhj/Keyword-With)
-[![Coverage Status](https://coveralls.io/repos/mcmillhj/Keyword-With/badge.svg?branch=master)](https://coveralls.io/r/mcmillhj/Keyword-With?branch=master)
+[![Coverage Status](https://coveralls.io/repos/mcmillhj/Keyword-With/badge.png?branch=master)](https://coveralls.io/r/mcmillhj/Keyword-With?branch=master)
 [![Kwalitee status](http://cpants.cpanauthors.org/dist/Keyword-With.png)](http://cpants.charsbar.org/dist/overview/Keyword-With)
 
 # NAME
@@ -8,11 +8,11 @@ Keyword::With - provide new syntax to use a 'given' statement without an experim
 
 # VERSION
 
-version 0.001
+version 0.002
 
 # DESCRIPTION
 
-Provide a construct almost identical to `given (...) { }` that evaluates an list expression in scalar context (assigning it to `$\`) then executing a block of code. 
+Provide a construct almost identical to given (...) { } that evaluates an list expression in scalar context (assigning it to $\_) then executing a block of code. 
 
 # NAME 
 
@@ -29,8 +29,8 @@ Keyword::With
 or 
 
     with ( some_func() ) {
-        print "matches\n" if grep { m/$_/ } qr/abc/, qr/def/;
-        print "does not match\n"; 
+       print "matches\n" if grep { m/$_/ } qr/abc/, qr/def/;
+       print "does not match\n"; 
     } 
 
 # ADVANTAGES 
@@ -39,17 +39,11 @@ No experimental warning
 
 # DISADVANTAGES 
 
-Cannot use builtins that modify `$_` with with blocks because they will clobber the `$_` value set by `with (...) { }`. This was already a disadvantage of given blocks. A reasonable approach would be to create a new lexical variable within the `with` block:
-
-    with ( [qw(1 2 3 5 8 13 21)] ) {
-        my @first_7_fibs = @$_;
-        my @new_first_7_fibs = map { $_ + 1 } @first_7_fibs;
-        ...
-    }
+Cannot use builtins that modify $\_ with with blocks because they will clobber the $\_ value set by with (...) { }. This was already a disadvantage of given blocks. 
 
 # AUTHOR
 
-Hunter McMillen &lt;mcmillhj@gmail.com>
+Hunter McMillen <mcmillhj@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
