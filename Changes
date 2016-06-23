@@ -2,6 +2,8 @@ Revision history for Keyword-Engiven
 
 {{$NEXT}}
 
+0.003       2016-06-23
+
 0.002       2016-06-23
    - remove references to current_sub in test file
    - reduce minimum Perl version in TravisCI configuration to 5.14
